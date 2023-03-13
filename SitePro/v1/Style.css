@@ -9,3 +9,9 @@ body{
 .menu{
     display: flex;
 }
+
+.contenu{
+    text-align: center;
+    color : red;
+    font-style: italic;
+}
