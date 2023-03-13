@@ -1,0 +1,17 @@
+#currentPage{
+    color : green;
+}
+
+body{
+    background-color: orange;
+}
+
+.menu{
+    display: flex;
+}
+
+.contenu{
+    text-align: center;
+    color : red;
+    font-style: italic;
+}
