@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-<title>Hector Durand</title>
+<title>Site IDAW</title>
 <link rel="stylesheet" href="Style.css">
 
 <meta charset="utf-8" />
