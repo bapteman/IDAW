@@ -1,0 +1,11 @@
+#currentPage{
+    color : green;
+}
+
+body{
+    background-color: orange;
+}
+
+.menu{
+    display: flex;
+}
