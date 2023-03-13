@@ -8,12 +8,13 @@ $mymenu = array(
     'projets' => array('Mes Projets')
 );
 // ...
+
 foreach($mymenu as $pageId => $pageParameters) {
     if($pageId==$currentPageId){
-       echo "<li><a id = 'currentPage' href='http://localhost/IDAW/SitePro/v2/{$pageId}.php'>$pageParameters[0]</a></li>";
+       echo "<li><a id = 'currentPage' class = 'navbar-link' href='http://localhost/IDAW/SitePro/v2/{$pageId}.php'>$pageParameters[0]</a></li>";
     }
     else{
-        echo "<li><a href='http://localhost/IDAW/SitePro/v2/{$pageId}.php'>$pageParameters[0]</a></li>";
+        echo "<li><a class = 'navbar-link' href='http://localhost/IDAW/SitePro/v2/{$pageId}.php'>$pageParameters[0]</a></li>";
     } 
 }
 // ...
