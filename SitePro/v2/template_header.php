@@ -2,8 +2,9 @@
 <html>
 <head>
 <title>Hector Durand</title>
-<link rel="stylesheet" href="style1.css" type="text/css"
+<link rel="stylesheet" href="Style.css">
 media="screen" title="default" charset="utf-8" />
+<link rel="stylesheet" href="Style.css">
 </head>
 <body>
 <?php

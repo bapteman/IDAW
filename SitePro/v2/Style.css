@@ -15,3 +15,9 @@ body{
     color : red;
     font-style: italic;
 }
+
+img{
+    width: 50%;
+    height: 50%;
+    align-items: center;
+}

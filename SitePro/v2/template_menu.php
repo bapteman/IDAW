@@ -9,7 +9,12 @@ $mymenu = array(
 );
 // ...
 foreach($mymenu as $pageId => $pageParameters) {
-echo $pageParameters;
+    if($pageId==$currentPageId){
+       echo "<li><a id = 'currentPage' href='http://localhost/IDAW/SitePro/v2/{$pageId}.php'>$pageParameters[0]</a></li>";
+    }
+    else{
+        echo "<li><a href='http://localhost/IDAW/SitePro/v2/{$pageId}.php'>$pageParameters[0]</a></li>";
+    } 
 }
 // ...
 }
