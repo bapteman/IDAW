@@ -1,5 +1,5 @@
 #currentPage{
-    color : green;
+    color:black;
 }
 
 body{
@@ -32,4 +32,8 @@ img{
 
 .page-section-heading{
     margin-top: 30px;
+}
+
+.linkedin_link{
+    color:white;
 }

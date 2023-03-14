@@ -6,7 +6,9 @@ $currentPageId = $_GET['page'];
 }
 if(isset($_GET['lang'])) {
     $lang = $_GET['lang'];
-    }
+}else{
+    $lang='fr';
+}
 ?>
 <?php
     require_once('template_menu.php');

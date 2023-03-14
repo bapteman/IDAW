@@ -12,6 +12,7 @@
                 <div class="row">
                     <div class="col-lg-4 ms-auto"><p class="lead">Mail : baptiste.seneclauze@gmail.com</p></div>
                     <div class="col-lg-4 me-auto"><p class="lead">Phone : 0695416333</p></div>
+                    <div class="col-lg-4 me-auto"><p class="lead">Linkedin : <a class='linkedin_link'href='https://www.linkedin.com/in/baptiste-seneclauze-72347b239/'/>https://www.linkedin.com/in/baptiste-seneclauze-72347b239/</p></div>
                 </div>
             </div>
         </section>
