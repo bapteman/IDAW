@@ -1,22 +1,23 @@
 <?php
 function renderMenuToHTML($currentPageId, $lang) {
 // un tableau qui d\'efinit la structure du site
-if($lang=='fr'){
-    $mymenu = array(
+
+$mymenu = array(
 // idPage titre
-        'accueil' => array( 'Accueil' ),
-        'cv' => array( 'Cv' ),
-        'projets' => array('Mes Projets'),
-        'contact' => array('Me contacter')
-    );
-} else if($lang=='en'){
-    $mymenu = array(
-        // idPage titre
-                'accueil' => array( 'Home' ),
-                'cv' => array( 'Cv' ),
-                'projets' => array('My Hobbies'),
-                'contact' => array('To contact me')
-            );
+    'accueil' => array( 'Accueil','Home' ),
+    'cv' => array( 'Cv','Cv' ),
+    'projets' => array('Mes Projets/hobbies', 'My Project/Hobbies'),
+    'contact' => array('Me contacter', 'To contact me')
+);
+
+$indice = 0;
+switch($lang){
+    case 'fr':
+        $indice = 0;
+        break;
+    case 'en':
+        $indice = 1;
+        break;
 }
 
 // ...
@@ -31,10 +32,10 @@ echo ('<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top
         <ul class="navbar-nav ms-auto">');
 foreach($mymenu as $pageId => $pageParameters) {
     if($pageId==$currentPageId){
-       echo "<li><a id = 'currentPage' class = 'navbar-link' href='http://localhost/IDAW/SitePro/v3/index.php?page={$pageId}&lang={$lang}'>$pageParameters[0]</a></li>";
+       echo "<li><a id = 'currentPage' class = 'navbar-link' href='http://localhost/IDAW/SitePro/v3/index.php?page={$pageId}&lang={$lang}'>$pageParameters[$indice]</a></li>";
     }
     else{
-        echo "<li><a class = 'navbar-link' href='http://localhost/IDAW/SitePro/v3/index.php?page={$pageId}&lang={$lang}'>$pageParameters[0]</a></li>";
+        echo "<li><a class = 'navbar-link' href='http://localhost/IDAW/SitePro/v3/index.php?page={$pageId}&lang={$lang}'>$pageParameters[$indice]</a></li>";
     } 
 }
 if($lang=='fr'){
