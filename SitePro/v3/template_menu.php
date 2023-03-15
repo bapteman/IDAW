@@ -5,7 +5,7 @@ function renderMenuToHTML($currentPageId, $lang) {
 $mymenu = array(
 // idPage titre
     'accueil' => array( 'Accueil','Home' ),
-    'cv' => array( 'Cv','Cv' ),
+    'cv' => array( 'Mon Cv','My Cv' ),
     'projets' => array('Mes Projets/hobbies', 'My Project/Hobbies'),
     'contact' => array('Me contacter', 'To contact me')
 );
@@ -39,9 +39,9 @@ foreach($mymenu as $pageId => $pageParameters) {
     } 
 }
 if($lang=='fr'){
-    echo ("<li><a href='index.php?page={$currentPageId}&lang=en'>Anglais</a>");
+    echo ("<li><a class='navbar-link' href='index.php?page={$currentPageId}&lang=en'>Anglais</a>");
 }elseif($lang=='en'){
-    echo ("<li><a href='index.php?page={$currentPageId}&lang=fr'>Français</a>");
+    echo ("<li><a class='navbar-link' href='index.php?page={$currentPageId}&lang=fr'>Français</a>");
 }
 echo ('</ul>
 </div>
