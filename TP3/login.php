@@ -1,4 +1,13 @@
-<form id="login_form" action="connected.php" method="GET">
+<?php 
+    if(isset($_GET['css'])){
+        $Style = $_GET['css'];
+        setcookie('style',$Style,time()+3600);
+    }else{
+        echo("erreur");
+    }
+?>
+
+<form id="login_form" action="connected.php" method="POST">
     <table>
         <tr>
             <th>Login :</th>
@@ -14,3 +23,5 @@
         </tr>
     </table>
 </form>
+
+
