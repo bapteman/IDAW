@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <head>
     <?php 
         if(isset($_COOKIE['style'])){
@@ -29,6 +30,8 @@
         if( array_key_exists($tryLogin,$users) && $users[$tryLogin]==$tryPwd ) {
             $successfullyLogged = true;
             $login = $tryLogin;
+            $_SESSION['login'] = $login;
+            $_SESSION['mdp'] = $tryPwd;
         } else
             $errorText = "Erreur de login/password";
     } else
@@ -39,3 +42,12 @@
         echo "<h1>Bienvenue ".$login."</h1>";
     }
 ?>
+
+<?php if(isset($_SESSION['login']))
+    echo $_SESSION['login'];
+?>
+
+<a href='page1.php'>page 1</a>
+<a href='page2.php'>page 2</a>
+
+<a href='disconnect.php'>disconnect</a>
