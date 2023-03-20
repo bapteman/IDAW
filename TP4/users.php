@@ -13,6 +13,20 @@
         myLog('Erreur : '.$erreur->getMessage());
     }
     $request = $pdo->prepare("select * from users");
+    $request->execute();
+    echo("<table>
+    <tr>
+      <th>ID</th>
+      <th>Login</th>
+      <th>Mail</th>
+    </tr>");
+    foreach($request as $user){
+        echo("<tr>
+        <td>{$user["ID"]}</td>
+        <td>{$user["login"]}</td>
+        <td>{$user["email"]}</td>
+      </tr>");
+    }
     // TODO: add your code here
     // retrieve data from database using fetch(PDO::FETCH_OBJ) and
     // display them in HTML array
