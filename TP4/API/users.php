@@ -16,15 +16,7 @@ switch($request_method)
     }
     break;
   case 'POST':
-    if(!empty($_GET['id']))
-    {
-        $id = intval($_GET["id"]);
-        updateUsers($id);
-    }
-    else
-    {
     addUsers();
-    }
     break;
     case 'DELETE':
         if(!empty($_GET["id"]))
@@ -68,8 +60,8 @@ function addUsers(){
       
      $sql = "INSERT INTO users(login,email)  VALUES ('$name',
          '$email')";
-     $pdo->prepare($sql)->execute();
-     if ($pdo->prepare($sql)->rowCount() > 0)
+     $test=$pdo->prepare($sql)->execute();
+     if ($test)
     {$response=array(
         'status' => 1,
         'status_message' =>'Utilisateur ajoute avec succes.'
@@ -93,36 +85,47 @@ function deleteUsers($id = null){
         WHERE id=$id";
         $query=$pdo->prepare($sql);
     }
-    $query->execute();
+    $test=$query->execute();
     $response=array();
-
-    $response=array(
-        'status' => 1,
-        'status_message' =>'Utilisateur supprimmer avec succes.'
-      );
+    if($test){
+        $response=array(
+           'status' => 1,
+           'status_message' =>'Utilisateur supprimé avec succes.'
+         );}else{ $response=array(
+           'status' => 0,
+           'status_message' =>'erreur');
+         }
     header('Content-Type: application/json');
     echo json_encode($response, JSON_PRETTY_PRINT);
 }
 
-function updateUsers($id){
+
+
+function updateUsers(){
     require_once('dbconnect.php');
-    $name =  $_POST['name'];
-    $email = $_POST['email'];
+    $json=file_get_contents('php://input');
+    $put= json_decode($json, TRUE);
+    $id = $put['id'];
+    $name = $put['name'];
+    $email = $put['email'];
      $sql = "UPDATE users
-     SET name = '$name',
+     SET login = '$name',
        email = '$email'
      WHERE id =$id";
     
-     $pdo->prepare($sql)->execute();
+     $test = $pdo->prepare($sql)->execute();
+     if($test){
      $response=array(
         'status' => 1,
-        'status_message' =>'Utilisateur mis à jour  avec succes.'
-      );
+        'status_message' =>'Utilisateur mis a jour  avec succes.'
+      );}else{ $response=array(
+        'status' => 0,
+        'status_message' =>'erreur');
+      }
     header('Content-Type: application/json');
     echo json_encode($response, JSON_PRETTY_PRINT);
-
-
-
 }
 
 ?>
+
+
