@@ -50,8 +50,9 @@ function getUsers($id = null){
     $query->execute();
     $response=array();
     $response = $query->fetchAll();
+    $res = array("data" => $response);
     header('Content-Type: application/json');
-    echo json_encode($response, JSON_PRETTY_PRINT);
+    echo json_encode($res, JSON_PRETTY_PRINT);
 }
 function addUsers(){
     require_once('dbconnect.php');

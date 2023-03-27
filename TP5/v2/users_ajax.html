@@ -18,6 +18,7 @@ margin-bottom: 100px;
 <table class="table" id="table">
 <thead>
 <tr>
+<th scope="col">ID</th>
 <th scope="col">Login</th>
 <th scope="col">Email</th>
 <th scope="col">CRUD</th>
@@ -50,36 +51,23 @@ margin-bottom: 100px;
  
 <script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
 <script>
-    $('#table').DataTable();
-    
-       $.ajax({
-        url: "http://localhost/IDAW/TP4/API/users",
 
-        method: "GET",
-
-
-        dataType : "json",
-    })
-
-   .done(function(response){
-        initTable(response);
-    })
+    var table;
+    $(document).ready(function(){
+    table=$('#table').DataTable({
+        ajax: "http://localhost/IDAW/TP4/API/users",
+        dataSrc:''
+    });
+});
 
 
-    .fail(function(error){
-        alert("La requête s'est terminée en échec. Infos : " + JSON.stringify(error));
-    })
-
-
-    .always(function(){
-        alert("Requête effectuée");
-     })
-     
-    function initTable(response){
+    /* function initTable(response){
         for(var i=0;i<response.length;i++){
         $("#studentsTableBody").append(`<tr id="${response[i]['ID']}"><td>${response[i]['login']}</td><td>${response[i]['email']}</td> <td> <button type="button" onclick="deleteElement()" >Delete</button> <button type="button" onclick="editElement()">Edit</button></td></tr>`);
-    }};
+    }}; */
     
+
+
     function onFormSubmit(){
         event.preventDefault();
         
@@ -88,7 +76,7 @@ margin-bottom: 100px;
         let prenom = $("#inputPrenom").val();
         $("#inputNom").val('');
         $("#inputPrenom").val('');
-        $("#studentsTableBody").append(`<tr><td>${nom}</td><td>${prenom}  </td> <td> <button type="button" onclick="onFormSubmit()" >Delete</button> <button type="button" onclick="editElement()">Edit</button></td></tr>`);
+        $("#studentsTableBody").append(`<tr><td>id</td><td>${nom}</td><td>${prenom}  </td> <td> <button type="button" onclick="onFormSubmit()" >Delete</button> <button type="button" onclick="editElement()">Edit</button></td></tr>`);
         $.ajax({
         url: "http://localhost/IDAW/TP4/API/users",
 
