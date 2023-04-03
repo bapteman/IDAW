@@ -1,5 +1,4 @@
 <?php
-
 $request_method=$_SERVER["REQUEST_METHOD"];
 switch($request_method)
 {
@@ -22,7 +21,6 @@ switch($request_method)
     header("HTTP/1.0 405 Method Not Allowed");
     break;
 }
-
 function getUsers($login = null){
     require_once('dbconnect.php');
     $query = $pdo->prepare("SELECT * FROM users WHERE login = ?");
@@ -109,6 +107,6 @@ function updateUsers(){
       }
     header('Content-Type: application/json');
     echo json_encode($response, JSON_PRETTY_PRINT);
-}
+    }
 
 ?>
