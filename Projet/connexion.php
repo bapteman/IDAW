@@ -17,8 +17,6 @@ if(isset($_POST['password'])){
     $response=array();
     $response = $query->fetchAll();
     $res = array("data" => $response);
-    /* $res = json_encode($res);
-    $res = json_decode($res, true); */
     $mdp = $res['data'][0]['mdp'];
     if($password==$mdp){
         session_start();

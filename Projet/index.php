@@ -1,3 +1,7 @@
 <?php
-//si la session existe envoyer vers la page d'accueil sinon vers la page login
+    if (isset($_SESSION["user"])){
+        require_once('accueil.php');
+    }else{
+        require_once('login.php');
+    }
 ?>
