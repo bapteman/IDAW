@@ -20,6 +20,8 @@
     <link href="bootstrap/css/sb-admin-2.min.css" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <script src="bootstrap/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="bootstrap/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 </head>
 <body id="page-top">
 <div id="wrapper">
