@@ -77,9 +77,10 @@
                                                         { "data":"id" },
                                                         { "data":"nom" },
                                                         {
-                                                            "data": "ID", "render": function (data) {
-                                                                return "<button type='button' class='infos btn btn-info btn-icon-split' >infos sur l'aliment</button>"
+                                                            "render": function (data, type, row, meta) {
+                                                                return "<button type='button' class='infos btn btn-info btn-icon-split' id = '" + row.id + "'nom='" + row.nom + "'>infos sur l'aliment</button>";
                                                             }
+
                                                         }, 
                                                     ]
                                                 });
@@ -87,25 +88,9 @@
                                                 $(document).on("click", ".infos", infos);
 
                                                 function infos() {
-                                                    var nom = $(event.target).attr('Nom');
-                                                    initTableInfos(nom);
-                                                }
-                                                function initTableInfos(nom){
-                                                    table.destroy();
-                                                    var table = $('#dataTable').DataTable({
-                                                    ajax: "http://localhost/IDAW/Projet/API/contient.php",
-                                                    dataSrc: '',
-                                                    dom: 'Bfrtip',
-                                                    columns: [
-                                                        { "data":"id" },
-                                                        { "data":"nom" },
-                                                        {
-                                                            "data": "ID", "render": function (data) {
-                                                                return "<button type='button' class='infos btn btn-info btn-icon-split' >infos sur l'aliment</button>"
-                                                            }
-                                                        }, 
-                                                    ]
-                                                });
+                                                    var nom = $(event.target).attr('nom');
+                                                    var id = $(event.target).attr('id');
+                                                    window.location.href = 'nutriments.php?nom=' + nom + '&id=' + id;
                                                 }
                                         </script>  
                             </div>

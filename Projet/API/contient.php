@@ -27,7 +27,11 @@ switch($request_method)
 function getContient($id_aliment,$nutriment = null){
     require_once('dbconnect.php');
     if($nutriment == null){
-        $query = $pdo->prepare("SELECT id_nut, quantité FROM contient WHERE id_alim = $id_aliment");
+        $query = $pdo->prepare("SELECT DISTINCT id_nut, quantité
+        FROM contient
+        WHERE id_alim = $id_aliment AND id_nut BETWEEN 141 AND 150
+        ORDER BY id_nut;
+        ");
     }else{
         $query = $pdo->prepare("SELECT quantité 
         FROM contient 
