@@ -35,7 +35,7 @@ function getAliment($nom = null){
     $response = $query->fetchAll();
     $res = array("data" => $response);
     header('Content-Type: application/json');
-    echo json_encode($res, JSON_PRETTY_PRINT);
+    echo json_encode($res);
 }
 function addAliment(){
     require_once('dbconnect.php');

@@ -1,6 +1,6 @@
 
 <?php
-require_once("template_header.php");
+require_once ('template_header.php');
 ?>
 
     <!-- Page Wrapper -->
@@ -337,7 +337,6 @@ require_once("template_header.php");
 
             </div>
             <!-- End of Main Content -->
-
-            <?php
-require_once("template_footer.php");
+<?php
+require_once ('template_footer.php');
 ?>
