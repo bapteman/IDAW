@@ -60,9 +60,9 @@ require_once ('template_header.php');
                     var qté = document.getElementById('quantité').value;
                     var dateConso = document.getElementById('dateConso').value
                     alert(dateConso);
-                    if(qté = null){
+                    if(qté == null || qté == undefined || qté == 0){
                         qté=1;
-                    }
+                    }alert(qté)
                     if(dateConso=null){
                         alert ('veuillez entrer une date de consommation');
                     }else{

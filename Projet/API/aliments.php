@@ -8,7 +8,10 @@ switch($request_method)
     {
       $nom = $_GET["nom"];
       getAliment($nom);
-    }else{
+    }else if(!empty($_GET["id"])){
+      getAliment(null,$_GET["id"]);
+    }
+    else{
       getAliment();
     }
     break;
@@ -22,14 +25,17 @@ switch($request_method)
     break;
 }
 
-function getAliment($nom = null){
+function getAliment($nom = null,$id = null){
     require_once('dbconnect.php');
-    if($nom == null){
+    if($nom == null && $id == null){
       $query = $pdo->prepare("SELECT id, nom FROM aliments");
     $query->execute();
-    }else{
+    }else if($id==null){
       $query = $pdo->prepare("SELECT * FROM aliments WHERE nom = ?");
       $query->execute([$nom]);
+    }else{
+      $query = $pdo->prepare("SELECT nom FROM aliments WHERE id = ?");
+      $query->execute([$id]);
     }
     $response=array();
     $response = $query->fetchAll();
