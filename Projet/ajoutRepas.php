@@ -7,11 +7,22 @@ require_once ('template_header.php');
 <div class="input-group">
     <input type="text" id="search" class="form-control bg-light border-0 small" placeholder="Search...">
     <div class="input-group-append">
-        <button class="btn btn-primary" type="button" onclick="functionSearch()">
-            <i class="fas fa-search fa-sm"></i>
-        </button>
+        
     </div>
 </div>
+<div id = "divqté">
+    <input type="number" id="quantité" placeholder = "quantité (1 si non precisé)" class="form-control bg-light small"> 
+</div>
+<div id = "divDateConso">
+    <input type="date" id="dateConso" placeholder = "date de consommation" class="form-control bg-light small"> 
+</div>
+
+<a class="btn btn-primary btn-icon-split" id="searchButton" onclick="functionSearch()">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-flag"></i>
+                                        </span>
+                                        <span class="text">Ajouter le repas</span>
+                                    </a>
             <ul id="suggestions"></ul>
             <script>
                $.ajax({
@@ -45,7 +56,42 @@ require_once ('template_header.php');
                     }
                 });
                 function functionSearch(){
-                    alert($('#search').value);
+                    var nom = document.getElementById('search').value;
+                    var qté = document.getElementById('quantité').value;
+                    var dateConso = document.getElementById('dateConso').value
+                    alert(dateConso);
+                    if(qté = null){
+                        qté=1;
+                    }
+                    if(dateConso=null){
+                        alert ('veuillez entrer une date de consommation');
+                    }else{
+                        $.ajax({
+                            url: "http://localhost/IDAW/Projet/API/aliments.php?nom="+nom,
+                            type: 'GET',
+                            dataType: 'json',
+                            success: function(array) {
+                                console.log(array);
+                                    $.ajax({
+                                        url: "http://localhost/IDAW/Projet/API/consomme",
+
+                                        method: "POST",
+
+
+                                        dataType: "json",
+                                        data:
+                                        {
+                                            "id_alim": array['data'][0]['id'],
+                                            "id_user": <?php echo $_SESSION['user'];?>,
+                                            "quantité": qté,
+                                            "date_consommation": dateConso,
+                                        },
+                                    });
+                                    alert("repas ajouté")
+                            },
+                        });
+                    }
+                    window.location.reload();
                 }
                
 
