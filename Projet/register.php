@@ -79,10 +79,10 @@
                                             id="exampleRepeatPassword" placeholder="Repeat Password">
                                     </div>
                                 </div>
-                                <!-- <div class="form-group">
+                                <div class="form-group">
                                     <input type="date" class="form-control form-control-user" id="Date"
                                         placeholder="Date de naissance">
-                                </div> -->
+                                </div> 
                                 <button type="submit" class="btn btn-primary btn-user btn-block">
                                     Register Account
                                 </button>
@@ -109,7 +109,9 @@
             event.preventDefault();
             let nom = $('#Nom').val()
             let prenom = $('#Prenom').val()
-            //let date = $('#date').val()
+            let dateNaissance = $('#date').val()
+            const date = new Date(dateNaissance); // Create a Date object from the string
+            const formattedDate = date.toISOString().slice(0, 10); // Format the date as YYYY-MM-DD
             let login = $('#Login').val()
             let niveau = $('#niveau').val()
             let sexe = $('#sexe').val()
@@ -130,9 +132,10 @@
                     "niveau" : niveau,
                     "sexe" : sexe,
                     "prenom" : prenom,
-                    "date" : "rien"
+                    "date" : formattedDate
                 },
             }).done(function (response) {
+                alert("done");
                     document.location.href='login.php';
 
                 })

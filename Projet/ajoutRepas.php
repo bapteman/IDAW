@@ -59,6 +59,8 @@ require_once ('template_header.php');
                     var nom = document.getElementById('search').value;
                     var qté = document.getElementById('quantité').value;
                     var dateConso = document.getElementById('dateConso').value
+                    const date = new Date(dateConso); // Create a Date object from the string
+                    const formattedDate = date.toISOString().slice(0, 10); // Format the date as YYYY-MM-DD                 
                     alert(dateConso);
                     if(qté == null || qté == undefined || qté == 0){
                         qté=1;
@@ -84,12 +86,13 @@ require_once ('template_header.php');
                                             "id_alim": array['data'][0]['id'],
                                             "id_user": <?php echo $_SESSION['user'];?>,
                                             "quantité": qté,
-                                            "date_consommation": dateConso,
+                                            "date_consommation": formattedDate,
                                         },
                                     });
                                     alert("repas ajouté")
                             },
                         });
+                        alert("done");
                     }
                     window.location.reload();
                 }
