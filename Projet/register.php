@@ -109,7 +109,8 @@
             event.preventDefault();
             let nom = $('#Nom').val()
             let prenom = $('#Prenom').val()
-            let dateNaissance = $('#date').val()
+            let dateNaissance = $('#Date').val()
+            alert(dateNaissance);
             const date = new Date(dateNaissance); // Create a Date object from the string
             const formattedDate = date.toISOString().slice(0, 10); // Format the date as YYYY-MM-DD
             let login = $('#Login').val()
