@@ -1,3 +1,4 @@
+#Liste des endpoints
 
 -GET /consomme : Récupérer toutes les consommations d'aliments
 
