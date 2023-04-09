@@ -17,7 +17,7 @@
     <title>Projet IDAW - Login</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="bootstrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
@@ -53,7 +53,7 @@
                                                 placeholder="Enter Email Address...">
                                         </div>
                                         <div class="form-group">
-                                            <input name="password" class="form-control form-control-user"
+                                            <input type="password" name="password" class="form-control form-control-user"
                                                 id="exampleInputPassword" placeholder="Password">
                                         </div>
                                         <div class="form-group">
@@ -82,14 +82,14 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+    <script src="bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="bootstrap/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="bootstrap/js/sb-admin-2.min.js"></script>
 
 </body>
 

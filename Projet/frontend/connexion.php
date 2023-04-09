@@ -11,7 +11,7 @@ if(isset($_POST['password'])){
 }else{
     echo("erreur");
 }
-    require_once('API/dbconnect.php');
+    require_once('../backend/dbconnect.php');
     $query = $pdo->prepare("SELECT * FROM users WHERE login = ?");
     $query->execute([$login]);
     $response=array();

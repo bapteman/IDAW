@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once ('template_header.php');
+require_once ('templates/template_header.php');
 ?>
 <head>
 
@@ -69,7 +69,7 @@ require_once ('template_header.php');
                             </table>
                             <script>
                                     var table = $('#dataTable').DataTable({
-                                                ajax: "http://localhost/IDAW/Projet/API/consomme.php?id="+<?php echo $_SESSION['user']?>,
+                                                ajax: "<?php echo(API_URL_BASE)?>/consomme.php?id="+<?php echo $_SESSION['user']?>,
                                                 dataSrc: '',
                                                 dom: 'Bfrtip',
                                                 columns: [
@@ -125,5 +125,5 @@ require_once ('template_header.php');
     <i class="fas fa-angle-up"></i>
 </a>
 <?php
-require_once("template_footer.php");
+require_once("templates/template_footer.php");
 ?>

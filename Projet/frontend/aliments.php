@@ -2,8 +2,7 @@
 <html lang="en">
 <?php
         session_start();
-        require_once("template_header.php");
-        require_once('template_sidebar.php');
+        require_once("templates/template_header.php");
 ?>
 <head>
 
@@ -70,7 +69,7 @@
                                 </table>
                                 <script>
                                         var table = $('#dataTable').DataTable({
-                                                    ajax: "http://localhost/IDAW/Projet/API/aliments.php",
+                                                    ajax: "<?php echo(API_URL_BASE)?>/aliments.php",
                                                     dataSrc: '',
                                                     dom: 'Bfrtip',
                                                     columns: [
@@ -125,7 +124,7 @@
     </a>
 
     <?php
-        require_once("template_footer.php");
+        require_once("templates/template_footer.php");
     ?>
 
 

@@ -45,8 +45,8 @@ function getConsomme($id = null)
   } else {
     $query = $pdo->prepare("SELECT c.id_alim, c.quantité, c.date_consommation, a.nom 
     FROM consomme c 
-    JOIN aliment a ON c.id_alim = a.id
-    WHERE c.id_user = ?");
+    JOIN aliments a ON c.id_alim = a.id
+    WHERE c.id_user = $id");
   }
   $query->execute();
   $response = array();

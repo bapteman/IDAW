@@ -119,7 +119,7 @@
             let pwd = $('#Password').val()
             alert(pwd);
             $.ajax({
-                url: "http://localhost/IDAW/Projet/API/users",
+                url: "<?php echo(API_URL_BASE)?>/users",
 
                 method: "POST",
 

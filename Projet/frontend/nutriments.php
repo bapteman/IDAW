@@ -1,21 +1,19 @@
 <?php
 session_start();
-    // Retrieve the 'nom' parameter from the URL
-    $nom = $_GET['nom'];
-    $id = $_GET['id'];
-    // Call the API to fetch the data using the 'nom' parameter
-    $url = 'http://localhost/IDAW/Projet/API/contient.php?id_aliment=' . $id;
-    $data = file_get_contents($url);
-    $result = json_decode($data, true);
-    $nutriments = array("Protéines (g/100 g)", "Glucides (g/100 g)", "Lipides (g/100 g)", "Sucres (g/100 g)", "Fructose (g/100 g)", "Galactose (g/100 g)", "Glucose (g/100 g)", "Lactose (g/100 g)", "Maltose (g/100 g)", "Saccharose (g/100 g)");
+// Retrieve the 'nom' parameter from the URL
+$nom = $_GET['nom'];
+$id = $_GET['id'];
+// Call the API to fetch the data using the 'nom' parameter
+$url = "<?php echo(API_URL_BASE)?>/contient.php?id_aliment=" . $id;
+$data = file_get_contents($url);
+$result = json_decode($data, true);
+$nutriments = array("Prot\xc3\xa9ines (g/100 g)", 'Glucides (g/100 g)', 'Lipides (g/100 g)', 'Sucres (g/100 g)', 'Fructose (g/100 g)', 'Galactose (g/100 g)', 'Glucose (g/100 g)', 'Lactose (g/100 g)', 'Maltose (g/100 g)', 'Saccharose (g/100 g)');
 ?>
-, 
+
 <!DOCTYPE html>
 <html lang="en">
 <?php
-    
-    require_once("template_header.php");
-    require_once('template_sidebar.php');
+require_once ('templates/template_header.php');
 ?>
 <head>
     <meta charset="utf-8">
@@ -54,7 +52,9 @@ session_start();
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800"><?php echo $nom; ?></h1>
+                    <h1 class="h3 mb-2 text-gray-800"><?php
+                            echo $nom;
+                            ?></h1>
                     <p class="mb-4">Nutriments</p>
 
                     <!-- DataTales Example -->
@@ -64,7 +64,10 @@ session_start();
                         </div>
                         <!-- Add a new section to display the data in a table -->
                         <div class="container">
-                            <h2>Contenu de l'aliment "<?php echo $nom ?>"</h2>
+                            <h2>Contenu de l'aliment "
+                                <?php
+                                    echo $nom
+                                ?>"</h2>
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
@@ -73,17 +76,31 @@ session_start();
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($result as $row) { 
-                                        for ($i = 0; $i < sizeof($nutriments); $i++) {?>
+                                    <?php
+                                        foreach ($result as $row) {
+                                            for ($i = 0; $i < sizeof($nutriments); $i++) {
+                                                ?>
                                             <tr>
-                                            <td><?php echo $nutriments[$i]; ?></td>
-                                            <td><?php echo $row[$i]['quantité']; ?></td>
+                                            <td><?php
+                                                echo $nutriments[$i];
+                                                ?></td>
+                                            <td><?php
+                                                echo $row[$i]["quantit\xc3\xa9"];
+                                                ?></td>
                                             </tr>
-                                        <?php } ?>
-                                    <?php } ?>
+                                        <?php
+                                        }
+                                        ?>
+                                    <?php
+                                        }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
+
+                        <?php
+require_once ('templates/template_footer.php');
+?>
 
 
 

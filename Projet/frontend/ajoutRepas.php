@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once ('template_header.php');
+require_once ('templates/template_header.php');
 ?>
 <h2>choisissez votre aliment</h2>
 
@@ -11,7 +11,7 @@ require_once ('template_header.php');
     </div>
 </div>
 <div id = "divqté">
-    <input type="number" id="quantité" placeholder = "quantité (1 si non precisé)" class="form-control bg-light small"> 
+    <input type="number" id="quantité" placeholder = "quantité (100g = 1, defaut : 1)" class="form-control bg-light small"> 
 </div>
 <div id = "divDateConso">
     <input type="date" id="dateConso" placeholder = "date de consommation" class="form-control bg-light small"> 
@@ -26,7 +26,7 @@ require_once ('template_header.php');
             <ul id="suggestions"></ul>
             <script>
                $.ajax({
-                    url: "http://localhost/IDAW/Projet/API/aliments.php",
+                    url: "<?php echo(API_URL_BASE)?>/aliments.php",
                     type: 'GET',
                     dataType: 'json',
                     success: function(array) {
@@ -69,13 +69,13 @@ require_once ('template_header.php');
                         alert ('veuillez entrer une date de consommation');
                     }else{
                         $.ajax({
-                            url: "http://localhost/IDAW/Projet/API/aliments.php?nom="+nom,
+                            url: "<?php echo(API_URL_BASE)?>/aliments.php?nom="+nom,
                             type: 'GET',
                             dataType: 'json',
                             success: function(array) {
                                 console.log(array);
                                     $.ajax({
-                                        url: "http://localhost/IDAW/Projet/API/consomme",
+                                        url: "<?php echo(API_URL_BASE)?>/consomme",
 
                                         method: "POST",
 
@@ -100,5 +100,5 @@ require_once ('template_header.php');
 
             </script>
 <?php
-require_once ('template_footer.php');
+require_once ('templates/template_footer.php');
 ?>

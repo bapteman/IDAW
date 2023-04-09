@@ -1,3 +1,6 @@
+<?php
+    require_once ('config.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,17 +14,17 @@
     <title>SB Admin 2 - Dashboard</title>
 
     <!-- Custom fonts for this template-->
-    <link href="bootstrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../bootstrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="bootstrap/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../frontend/bootstrap/css/sb-admin-2.min.css" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
-    <script src="bootstrap/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="bootstrap/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="../frontend/bootstrap/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="../frontend/bootstrap/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 </head>
 <body id="page-top">
 <div id="wrapper">
@@ -50,7 +53,7 @@ require_once("template_sidebar.php");
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['nom_user'];echo(' '); echo $_SESSION['prenom_user']?></span>
                             <img class="img-profile rounded-circle"
-                                src="bootstrap/img/undraw_profile.svg">
+                                src="../frontend/bootstrap/img/undraw_profile.svg">
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
