@@ -25,6 +25,7 @@ if(isset($_POST['password'])){
         $_SESSION["prenom_user"] = $res['data'][0]['prenom'];
         $_SESSION["login"] = $res['data'][0]['login'];
         $_SESSION["niveau"] = $res['data'][0]['niveau'];
+        $_SESSION["date_naissance"] = $res['data'][0]['dateDeNaissance'];
         require_once('accueil.php');
     }
 ?>
