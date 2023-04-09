@@ -61,10 +61,9 @@ require_once ('templates/template_header.php');
                     var dateConso = document.getElementById('dateConso').value
                     const date = new Date(dateConso); // Create a Date object from the string
                     const formattedDate = date.toISOString().slice(0, 10); // Format the date as YYYY-MM-DD                 
-                    alert(dateConso);
                     if(qté == null || qté == undefined || qté == 0){
                         qté=1;
-                    }alert(qté)
+                    }
                     if(dateConso=null){
                         alert ('veuillez entrer une date de consommation');
                     }else{
@@ -89,10 +88,8 @@ require_once ('templates/template_header.php');
                                             "date_consommation": formattedDate,
                                         },
                                     });
-                                    alert("repas ajouté")
                             },
                         });
-                        alert("done");
                     }
                     window.location.reload();
                 }

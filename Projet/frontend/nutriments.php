@@ -1,10 +1,11 @@
 <?php
 session_start();
+require_once("templates/template_header.php");
 // Retrieve the 'nom' parameter from the URL
 $nom = $_GET['nom'];
 $id = $_GET['id'];
 // Call the API to fetch the data using the 'nom' parameter
-$url = "<?php echo(API_URL_BASE)?>/contient.php?id_aliment=" . $id;
+$url = API_URL_BASE . "/contient.php?id_aliment=" . $id;
 $data = file_get_contents($url);
 $result = json_decode($data, true);
 $nutriments = array("Prot\xc3\xa9ines (g/100 g)", 'Glucides (g/100 g)', 'Lipides (g/100 g)', 'Sucres (g/100 g)', 'Fructose (g/100 g)', 'Galactose (g/100 g)', 'Glucose (g/100 g)', 'Lactose (g/100 g)', 'Maltose (g/100 g)', 'Saccharose (g/100 g)');

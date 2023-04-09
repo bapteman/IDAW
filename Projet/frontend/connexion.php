@@ -1,5 +1,6 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
 <?php
+require_once('config.php');
 if(isset($_POST['login'])){
     $login = $_POST['login'];
 }else{
@@ -11,13 +12,10 @@ if(isset($_POST['password'])){
 }else{
     echo("erreur");
 }
-    require_once('../backend/dbconnect.php');
-    $query = $pdo->prepare("SELECT * FROM users WHERE login = ?");
-    $query->execute([$login]);
-    $response=array();
-    $response = $query->fetchAll();
-    $res = array("data" => $response);
-    $mdp = $res['data'][0]['mdp'];
+    $url = API_URL_BASE . "/users.php?login=" . $login;
+    $data = file_get_contents($url);
+    $res = json_decode($data, true);
+    $mdp = $res["data"][0]["mdp"];
     if($password==$mdp){
         session_start();
         $_SESSION["user"] = $res['data'][0]['id_user'];
@@ -27,5 +25,5 @@ if(isset($_POST['password'])){
         $_SESSION["niveau"] = $res['data'][0]['niveau'];
         $_SESSION["date_naissance"] = $res['data'][0]['dateDeNaissance'];
         require_once('accueil.php');
-    }
+    } 
 ?>

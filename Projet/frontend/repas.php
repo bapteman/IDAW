@@ -69,7 +69,7 @@ require_once ('templates/template_header.php');
                             </table>
                             <script>
                                     var table = $('#dataTable').DataTable({
-                                                ajax: "<?php echo(API_URL_BASE)?>/consomme.php?id="+<?php echo $_SESSION['user']?>,
+                                                ajax: "<?php echo(API_URL_BASE)?>/consomme.php?id_user=<?php echo $_SESSION['user']?>",
                                                 dataSrc: '',
                                                 dom: 'Bfrtip',
                                                 columns: [

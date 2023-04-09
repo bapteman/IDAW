@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php 
+    require_once('config.php');
+?>
 <head>
 
     <meta charset="utf-8">
@@ -9,6 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Projet IDAW Register</title>
 
     <!-- Custom fonts for this template-->
@@ -69,15 +72,9 @@
                                     <input type="text" class="form-control form-control-user" id="Login"
                                         placeholder="login">
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                <div class="form-group">
                                         <input type="password" class="form-control form-control-user"
-                                            id="Password" placeholder="Password">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Repeat Password">
-                                    </div>
+                                            id="Password" placeholder="Password">                    
                                 </div>
                                 <div class="form-group">
                                     <input type="date" class="form-control form-control-user" id="Date"
@@ -89,9 +86,6 @@
                                 <hr>
                             </form>
                             <hr>
-                            <div class="text-center">
-                                <a class="small" href="forgot-password.php">Forgot Password?</a>
-                            </div>
                             <div class="text-center">
                                 <a class="small" href="login.php">Already have an account? Login!</a>
                             </div>
@@ -110,14 +104,12 @@
             let nom = $('#Nom').val()
             let prenom = $('#Prenom').val()
             let dateNaissance = $('#Date').val()
-            alert(dateNaissance);
             const date = new Date(dateNaissance); // Create a Date object from the string
             const formattedDate = date.toISOString().slice(0, 10); // Format the date as YYYY-MM-DD
             let login = $('#Login').val()
             let niveau = $('#niveau').val()
             let sexe = $('#sexe').val()
             let pwd = $('#Password').val()
-            alert(pwd);
             $.ajax({
                 url: "<?php echo(API_URL_BASE)?>/users",
 
@@ -143,13 +135,11 @@
 
 
                 .fail(function (error) {
-                    //alert("La requête s'est terminée en échec. Infos : " + JSON.stringify(error));
                     alert("erreur de login/mot de passe ");
                 })
 
 
                 .always(function () {
-                    //alert("Requête effectuée");
                 })
         }
     </script>
